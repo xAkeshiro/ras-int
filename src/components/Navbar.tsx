@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { clsx } from "clsx";
 import { navLinks } from "@/lib/data";
 import Button from "@/components/ui/Button";
@@ -34,51 +34,54 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-neutral-200/60"
+          ? "bg-white/80 backdrop-blur-xl border-b border-neutral-200/60 shadow-sm"
           : "bg-white"
       )}
     >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
           <Image
             src="/logos/ras-logo-green.png"
             alt="RAS International logo"
-            width={28}
-            height={28}
-            className="w-7 h-7"
+            width={32}
+            height={32}
+            className="w-8 h-8"
           />
-          <span className="text-sm font-semibold text-neutral-900">
+          <span className="text-sm font-bold text-neutral-900 tracking-tight">
             RAS International
           </span>
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={clsx(
-                "text-sm transition-colors",
+                "text-sm px-3 py-2 rounded-lg transition-all",
                 pathname === link.href
-                  ? "text-neutral-900 font-medium"
-                  : "text-neutral-500 hover:text-neutral-900"
+                  ? "text-ras-green-700 bg-ras-green-50 font-medium"
+                  : "text-neutral-500 hover:text-neutral-900 hover:bg-neutral-50"
               )}
             >
               {link.label}
             </Link>
           ))}
-          <Button href="/contact-us">
-            Contact Us
-          </Button>
+          <div className="ml-3">
+            <Button href="/contact-us">
+              Contact Us
+              <ArrowRight size={14} className="ml-1.5" />
+            </Button>
+          </div>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-1.5 text-neutral-600 hover:text-neutral-900"
+          className="md:hidden p-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -89,7 +92,7 @@ export default function Navbar() {
       {/* Mobile drawer */}
       <div
         className={clsx(
-          "fixed inset-0 top-14 z-40 bg-white transform transition-transform duration-200 ease-in-out md:hidden",
+          "fixed inset-0 top-16 z-40 bg-white transform transition-transform duration-200 ease-in-out md:hidden",
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -100,9 +103,9 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setMobileOpen(false)}
               className={clsx(
-                "text-base transition-colors py-3 border-b border-neutral-100",
+                "text-base transition-colors py-3 border-b border-neutral-100 rounded-none",
                 pathname === link.href
-                  ? "text-neutral-900 font-medium"
+                  ? "text-ras-green-700 font-medium"
                   : "text-neutral-600 hover:text-neutral-900"
               )}
             >
@@ -113,8 +116,10 @@ export default function Navbar() {
             <Button
               href="/contact-us"
               onClick={() => setMobileOpen(false)}
+              className="w-full"
             >
               Contact Us
+              <ArrowRight size={14} className="ml-1.5" />
             </Button>
           </div>
         </div>

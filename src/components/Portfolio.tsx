@@ -20,12 +20,12 @@ export default function Portfolio() {
           </p>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {associations.map((assoc, i) => (
             <RevealOnScroll key={i} delay={i * 0.08}>
-              <div className="bg-white rounded-lg p-5 border border-neutral-200 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-medium text-neutral-400">
+              <div className="card-accent bg-white rounded-xl p-6 border border-neutral-200 h-full flex flex-col hover:shadow-md transition-all">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider">
                     {assoc.region}
                   </span>
                   <a
@@ -33,13 +33,13 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${assoc.acronym} website`}
-                    className="text-neutral-300 hover:text-ras-green-600 transition-colors"
+                    className="w-8 h-8 rounded-lg border border-neutral-200 flex items-center justify-center text-neutral-300 hover:text-ras-green-600 hover:border-ras-green-300 transition-all"
                   >
-                    <ArrowUpRight size={16} />
+                    <ArrowUpRight size={14} />
                   </a>
                 </div>
 
-                <h3 className="text-lg font-bold text-neutral-900 mb-1.5">
+                <h3 className="text-lg font-bold text-neutral-900 mb-2">
                   {assoc.acronym}
                 </h3>
                 <p className="text-sm text-neutral-500 leading-relaxed mb-5 flex-1">
@@ -50,7 +50,7 @@ export default function Portfolio() {
                   {assoc.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2 py-0.5 rounded bg-neutral-100 text-neutral-500"
+                      className="text-xs px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-500 font-medium"
                     >
                       {tag}
                     </span>

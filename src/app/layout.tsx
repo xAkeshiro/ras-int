@@ -1,0 +1,44 @@
+import type { Metadata } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "RAS International — Association Management & Business Development",
+  description:
+    "Deeply Rooted in Growing Partnerships with Purpose. RAS International delivers turnkey management, revenue growth, and strategic governance for non-profit trade associations in the luxury ground transportation industry.",
+  openGraph: {
+    title: "RAS International — Association Management & Business Development",
+    description:
+      "Deeply Rooted in Growing Partnerships with Purpose. Turnkey management, revenue growth, and strategic governance for non-profit trade associations.",
+    url: "https://ras-int.org",
+    siteName: "RAS International",
+    type: "website",
+    locale: "en_US",
+  },
+  metadataBase: new URL("https://ras-int.org"),
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-sans text-ras-neutral-800 antialiased">
+        {children}
+      </body>
+    </html>
+  );
+}

@@ -4,36 +4,35 @@ import { siteConfig, navLinks, footerAssociationLinks } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-200 bg-neutral-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="border-t border-neutral-200">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
               <Image
                 src="/logos/ras-logo-green.png"
                 alt="RAS International logo"
-                width={28}
-                height={28}
-                className="w-7 h-7"
+                width={24}
+                height={24}
+                className="w-6 h-6"
               />
-              <span className="text-sm font-bold text-neutral-900 tracking-tight">
+              <span className="text-sm font-semibold text-neutral-900 tracking-tight">
                 RAS International
               </span>
             </div>
-            <p className="text-sm leading-relaxed text-neutral-500 max-w-xs">
+            <p className="text-sm leading-relaxed text-neutral-400 max-w-xs">
               Turnkey association management for the luxury ground
-              transportation industry. Deeply rooted in growing partnerships
-              with purpose.
+              transportation industry.
             </p>
           </div>
 
           {/* Company links */}
           <div>
-            <h4 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-4">
+            <h4 className="font-mono text-[10px] font-medium tracking-[0.1em] uppercase text-neutral-400 mb-5">
               Company
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -57,10 +56,10 @@ export default function Footer() {
 
           {/* Association links */}
           <div>
-            <h4 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-4">
+            <h4 className="font-mono text-[10px] font-medium tracking-[0.1em] uppercase text-neutral-400 mb-5">
               Associations
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {footerAssociationLinks.map((link) => (
                 <li key={link.href}>
                   <a
@@ -78,10 +77,10 @@ export default function Footer() {
 
           {/* Contact info */}
           <div>
-            <h4 className="text-xs font-semibold text-neutral-900 uppercase tracking-wider mb-4">
+            <h4 className="font-mono text-[10px] font-medium tracking-[0.1em] uppercase text-neutral-400 mb-5">
               Contact
             </h4>
-            <ul className="space-y-2.5 text-sm text-neutral-500">
+            <ul className="space-y-3 text-sm text-neutral-500">
               <li>
                 <a
                   href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
@@ -107,10 +106,10 @@ export default function Footer() {
 
       <div className="border-t border-neutral-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-xs text-neutral-400">
+          <p className="font-mono text-[10px] tracking-[0.05em] text-neutral-400">
             &copy; {new Date().getFullYear()} RAS International. All rights reserved.
           </p>
-          <p className="text-xs text-neutral-400">
+          <p className="font-mono text-[10px] tracking-[0.05em] text-neutral-400">
             Proud Member of ASAE
           </p>
         </div>

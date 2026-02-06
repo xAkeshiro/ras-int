@@ -7,11 +7,11 @@ import RevealOnScroll from "@/components/ui/RevealOnScroll";
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-20 sm:py-28 bg-neutral-50">
+    <section id="portfolio" className="py-24 sm:py-32 bg-neutral-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <SectionLabel>Our Portfolio</SectionLabel>
-          <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4 max-w-lg tracking-tight">
+          <h2 className="text-heading text-neutral-900 mb-4">
             Associations We Manage
           </h2>
           <p className="text-base text-neutral-500 leading-relaxed max-w-xl mb-14">
@@ -20,43 +20,43 @@ export default function Portfolio() {
           </p>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-neutral-200 rounded-lg overflow-hidden">
           {associations.map((assoc, i) => (
-            <RevealOnScroll key={i} delay={i * 0.08}>
-              <div className="card-accent bg-white rounded-xl p-6 border border-neutral-200 h-full flex flex-col hover:shadow-md transition-all">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-medium text-neutral-400 uppercase tracking-wider">
+            <RevealOnScroll key={i} delay={i * 0.05}>
+              <a
+                href={assoc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-white p-8 h-full hover:bg-neutral-50 transition-colors"
+              >
+                <div className="flex items-center justify-between mb-5">
+                  <span className="font-mono text-[10px] tracking-[0.05em] uppercase text-neutral-400">
                     {assoc.region}
                   </span>
-                  <a
-                    href={assoc.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit ${assoc.acronym} website`}
-                    className="w-8 h-8 rounded-lg border border-neutral-200 flex items-center justify-center text-neutral-300 hover:text-ras-green-600 hover:border-ras-green-300 transition-all"
-                  >
-                    <ArrowUpRight size={14} />
-                  </a>
+                  <ArrowUpRight
+                    size={14}
+                    className="text-neutral-300 group-hover:text-neutral-900 transition-colors"
+                  />
                 </div>
 
-                <h3 className="text-lg font-bold text-neutral-900 mb-2">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-2">
                   {assoc.acronym}
                 </h3>
-                <p className="text-sm text-neutral-500 leading-relaxed mb-5 flex-1">
+                <p className="text-sm text-neutral-500 leading-relaxed mb-5">
                   {assoc.description}
                 </p>
 
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {assoc.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-500 font-medium"
+                      className="font-mono text-[10px] tracking-[0.05em] text-neutral-400"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-              </div>
+              </a>
             </RevealOnScroll>
           ))}
         </div>

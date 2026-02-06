@@ -17,8 +17,8 @@ export default function Hero() {
               {siteConfig.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button href="#contact">Start a Conversation</Button>
-              <Button href="#services" variant="secondary">
+              <Button href="/contact-us">Start a Conversation</Button>
+              <Button href="/expertise" variant="secondary">
                 Explore Our Services
               </Button>
             </div>

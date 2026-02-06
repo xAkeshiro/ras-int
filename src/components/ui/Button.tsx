@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { clsx } from "clsx";
 
 type ButtonProps = {
@@ -30,10 +31,18 @@ export default function Button({
   const classes = clsx(base, variants[variant], className);
 
   if (href) {
+    const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+    if (isExternal) {
+      return (
+        <a href={href} className={classes}>
+          {children}
+        </a>
+      );
+    }
     return (
-      <a href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
-      </a>
+      </Link>
     );
   }
 

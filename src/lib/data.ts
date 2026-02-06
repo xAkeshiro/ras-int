@@ -200,11 +200,69 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Approach", href: "#approach" },
+  { label: "Our Why", href: "/ourwhy" },
+  { label: "Expertise", href: "/expertise" },
+  { label: "Our Team", href: "/our-team" },
 ] as const;
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+};
+
+export const teamMembers: TeamMember[] = [
+  {
+    name: "Sara Eastwood-Richardson",
+    role: "Founder & CEO",
+    bio: "Sara has spent 25 years working with both charities and business trade associations. The name RAS comes from her children — Ryan, Alec, and Spencer. In her career, Sara has sold and managed over $100,000,000 in new event sponsorship sales while working as a media publisher, trade show organizer, and special event director. She managed a national non-profit business association for 19 years and has hosted fundraising events for charities including Make-A-Wish, Angel Flight, MADD, and St. Jude.",
+  },
+  {
+    name: "Ryan McLean",
+    role: "Chief Operating Officer",
+    bio: "Ryan graduated with a degree in Business/Marketing from the University of Washington in 2019 and has taken the leading role as COO at RAS. He oversees client accounting services, HR, and office management, ensuring operations run smoothly across all managed associations.",
+  },
+  {
+    name: "Julie",
+    role: "Sales & Marketing Director",
+    bio: "Julie has enjoyed a professional Sales and Marketing career for 20+ years with companies including Conde Naste Media, Prime Media, and Miramar Communications. She brings deep expertise in media sales and partnership development to the RAS team.",
+  },
+  {
+    name: "Joan & Kim",
+    role: "Strategic Partners — Cultivation Companies",
+    bio: "Joan and Kim, founders of Cultivation Companies, are strategic partners of RAS International. With a combined 30+ years of event expertise, they support business development and marketing efforts across all managed associations.",
+  },
+];
+
+export const ourWhyMission =
+  "To leverage our expertise to increase membership, event participation, and digital sales that deliver ROI and improve retention for non-profit organizations.";
+
+export const ourWhyCopy = [
+  "RAS International is dedicated to handling every aspect of your trade association including financial, operations, board management, and governance. We are experts at business development and highly skilled at driving revenue, implementing unique membership strategies, promotions, and live events.",
+  "We alleviate the burden put on volunteers by acting as a right arm to our boards, taking care of managing every detail so our clients can focus on advocacy and traditional fundraising.",
+  "We are experts at business development. We know how to identify opportunities for growth, how to package them, how to sell, and most importantly, how to execute.",
+];
+
+export const expertiseIntro =
+  "There is a real need for custom marketing help among non-profit associations. Most boards are comprised of volunteers who come together for a cause, and all organizations need to raise revenue to see their goals achieved. That's where we come in.";
+
+export const expertiseHighlights = [
+  {
+    title: "Sponsorship Marketing & Fulfillment",
+    description:
+      "We understand how to go deep with industry sponsors and donors to help them with engagement strategies before, during, and after events. We help sponsors use the clout earned to grow their reputation within the organization's community, and put the emotional connection to work after the event with follow-up strategies.",
+  },
+  {
+    title: "Value Creation",
+    description:
+      "We excel at value creation through association enhancements such as media centers, live events, digital networking directories, and improved association branding. We create a Vision Forward focused on growing membership and brand through the positivity of community.",
+  },
+  {
+    title: "Skin in the Game",
+    description:
+      "Our management fees are the lowest around because we know we can be most effective with clients when we have skin in the game. While we have baseline operational costs, the balance of our money comes from commissions on what we sell for our clients.",
+  },
+];
 
 export const footerAssociationLinks = [
   { label: "GCLA", href: "https://gcla.org" },

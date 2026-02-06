@@ -2,12 +2,15 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { clsx } from "clsx";
 import { navLinks } from "@/lib/data";
 import Button from "@/components/ui/Button";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -39,7 +42,7 @@ export default function Navbar() {
     >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 shrink-0">
+        <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image
             src="/logos/ras-logo-green.png"
             alt="RAS International logo"
@@ -50,20 +53,25 @@ export default function Navbar() {
           <span className="text-sm font-semibold text-neutral-900">
             RAS International
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+              className={clsx(
+                "text-sm transition-colors",
+                pathname === link.href
+                  ? "text-neutral-900 font-medium"
+                  : "text-neutral-500 hover:text-neutral-900"
+              )}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <Button href="#contact">
+          <Button href="/contact-us">
             Contact Us
           </Button>
         </div>
@@ -87,18 +95,23 @@ export default function Navbar() {
       >
         <div className="flex flex-col px-6 pt-8 gap-1">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-base text-neutral-600 hover:text-neutral-900 transition-colors py-3 border-b border-neutral-100"
+              className={clsx(
+                "text-base transition-colors py-3 border-b border-neutral-100",
+                pathname === link.href
+                  ? "text-neutral-900 font-medium"
+                  : "text-neutral-600 hover:text-neutral-900"
+              )}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <div className="pt-4">
             <Button
-              href="#contact"
+              href="/contact-us"
               onClick={() => setMobileOpen(false)}
             >
               Contact Us

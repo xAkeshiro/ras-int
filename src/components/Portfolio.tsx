@@ -7,25 +7,25 @@ import RevealOnScroll from "@/components/ui/RevealOnScroll";
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-24 sm:py-32 bg-ras-neutral-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-20 sm:py-28 bg-neutral-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <SectionLabel>Our Portfolio</SectionLabel>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ras-neutral-800 mb-4 max-w-xl">
+          <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4 max-w-lg tracking-tight">
             Associations We Manage
           </h2>
-          <p className="font-sans text-base sm:text-lg text-ras-neutral-500 leading-relaxed max-w-3xl mb-16">
+          <p className="text-base text-neutral-500 leading-relaxed max-w-xl mb-14">
             We serve as the backbone for leading trade associations in the
             luxury ground transportation industry across the United States.
           </p>
         </RevealOnScroll>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {associations.map((assoc, i) => (
-            <RevealOnScroll key={i} delay={i * 0.12}>
-              <div className="group bg-white rounded-xl p-6 sm:p-8 border border-ras-neutral-200 hover:border-t-2 hover:border-t-ras-green-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-md h-full flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs tracking-wider uppercase px-3 py-1 rounded-full bg-ras-green-50 text-ras-green-600 border border-ras-green-100">
+            <RevealOnScroll key={i} delay={i * 0.08}>
+              <div className="bg-white rounded-lg p-5 border border-neutral-200 h-full flex flex-col">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-medium text-neutral-400">
                     {assoc.region}
                   </span>
                   <a
@@ -33,24 +33,24 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit ${assoc.acronym} website`}
-                    className="text-ras-neutral-400 hover:text-ras-green-500 transition-colors"
+                    className="text-neutral-300 hover:text-ras-green-600 transition-colors"
                   >
-                    <ArrowUpRight size={18} />
+                    <ArrowUpRight size={16} />
                   </a>
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-ras-neutral-800 mb-2">
+                <h3 className="text-lg font-bold text-neutral-900 mb-1.5">
                   {assoc.acronym}
                 </h3>
-                <p className="font-sans text-sm text-ras-neutral-500 leading-relaxed mb-6 flex-1">
+                <p className="text-sm text-neutral-500 leading-relaxed mb-5 flex-1">
                   {assoc.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {assoc.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="font-sans text-xs px-2.5 py-1 rounded-md bg-ras-neutral-100 text-ras-neutral-500"
+                      className="text-xs px-2 py-0.5 rounded bg-neutral-100 text-neutral-500"
                     >
                       {tag}
                     </span>

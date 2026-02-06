@@ -18,13 +18,13 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center px-6 py-3 rounded-lg font-sans font-semibold text-sm tracking-wide transition-all duration-300 cursor-pointer";
+    "inline-flex items-center justify-center px-5 py-2.5 rounded-md font-medium text-sm transition-colors duration-200 cursor-pointer";
 
   const variants = {
     primary:
-      "bg-ras-green-500 text-white hover:bg-ras-green-600 shadow-sm hover:shadow-md",
+      "bg-ras-green-600 text-white hover:bg-ras-green-700",
     secondary:
-      "bg-transparent text-ras-green-600 border-2 border-ras-green-500 hover:bg-ras-green-50",
+      "bg-neutral-100 text-neutral-700 hover:bg-neutral-200",
   };
 
   const classes = clsx(base, variants[variant], className);

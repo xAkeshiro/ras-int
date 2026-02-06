@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonials } from "@/lib/data";
 import SectionLabel from "@/components/ui/SectionLabel";
 import RevealOnScroll from "@/components/ui/RevealOnScroll";
@@ -20,30 +20,30 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-24 sm:py-32 bg-ras-neutral-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 sm:py-28 bg-neutral-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <RevealOnScroll>
-          <div className="flex items-end justify-between mb-16">
+          <div className="flex items-end justify-between mb-10">
             <div>
               <SectionLabel>Trusted by Leaders</SectionLabel>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ras-neutral-800">
+              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 tracking-tight">
                 What Our Partners Say
               </h2>
             </div>
-            <div className="hidden sm:flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-1.5">
               <button
                 onClick={() => scroll("left")}
                 aria-label="Scroll testimonials left"
-                className="p-2 rounded-full border border-ras-neutral-200 text-ras-neutral-500 hover:border-ras-green-400 hover:text-ras-green-600 transition-colors"
+                className="p-1.5 rounded-md border border-neutral-200 text-neutral-400 hover:text-neutral-600 hover:border-neutral-300 transition-colors"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={16} />
               </button>
               <button
                 onClick={() => scroll("right")}
                 aria-label="Scroll testimonials right"
-                className="p-2 rounded-full border border-ras-neutral-200 text-ras-neutral-500 hover:border-ras-green-400 hover:text-ras-green-600 transition-colors"
+                className="p-1.5 rounded-md border border-neutral-200 text-neutral-400 hover:text-neutral-600 hover:border-neutral-300 transition-colors"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={16} />
               </button>
             </div>
           </div>
@@ -51,23 +51,19 @@ export default function Testimonials() {
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4 snap-x snap-mandatory"
+          className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4 snap-x snap-mandatory"
         >
           {testimonials.map((t, i) => (
-            <RevealOnScroll key={i} delay={i * 0.1}>
-              <div className="snap-start shrink-0 w-80 sm:w-96 bg-white rounded-xl p-6 sm:p-8 border border-ras-neutral-200 flex flex-col">
-                <Quote
-                  size={24}
-                  className="text-ras-green-300 mb-4 shrink-0"
-                />
-                <p className="font-sans text-sm text-ras-neutral-600 leading-relaxed mb-6 flex-1">
+            <RevealOnScroll key={i} delay={i * 0.08}>
+              <div className="snap-start shrink-0 w-80 bg-white rounded-lg p-5 border border-neutral-200 flex flex-col">
+                <p className="text-sm text-neutral-600 leading-relaxed mb-5 flex-1">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div>
-                  <p className="font-sans text-sm font-semibold text-ras-neutral-800">
+                <div className="pt-4 border-t border-neutral-100">
+                  <p className="text-sm font-medium text-neutral-900">
                     {t.author}
                   </p>
-                  <p className="font-sans text-xs text-ras-neutral-400">
+                  <p className="text-xs text-neutral-400 mt-0.5">
                     {t.role}
                   </p>
                 </div>

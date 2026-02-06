@@ -3,41 +3,40 @@ import { siteConfig, navLinks, footerAssociationLinks } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer className="bg-ras-neutral-800 text-ras-neutral-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="border-t border-neutral-200 bg-neutral-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-3">
               <Image
-                src="/logos/ras-logo-white.png"
+                src="/logos/ras-logo-green.png"
                 alt="RAS International logo"
-                width={32}
-                height={32}
-                className="w-8 h-8"
+                width={24}
+                height={24}
+                className="w-6 h-6"
               />
-              <span className="font-serif text-lg font-bold text-white">
+              <span className="text-sm font-semibold text-neutral-900">
                 RAS International
               </span>
             </div>
-            <p className="font-sans text-sm leading-relaxed text-ras-neutral-400">
-              Deeply rooted in growing partnerships with purpose. Turnkey
-              association management for the luxury ground transportation
-              industry.
+            <p className="text-sm leading-relaxed text-neutral-400">
+              Turnkey association management for the luxury ground
+              transportation industry.
             </p>
           </div>
 
           {/* Company links */}
           <div>
-            <h4 className="font-sans text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-xs font-medium text-neutral-900 mb-3">
               Company
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="font-sans text-sm text-ras-neutral-400 hover:text-ras-green-400 transition-colors"
+                    className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -46,7 +45,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="font-sans text-sm text-ras-neutral-400 hover:text-ras-green-400 transition-colors"
+                  className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors"
                 >
                   Contact
                 </a>
@@ -56,17 +55,17 @@ export default function Footer() {
 
           {/* Association links */}
           <div>
-            <h4 className="font-sans text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-xs font-medium text-neutral-900 mb-3">
               Associations
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {footerAssociationLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-sans text-sm text-ras-neutral-400 hover:text-ras-green-400 transition-colors"
+                    className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors"
                   >
                     {link.label}
                   </a>
@@ -77,14 +76,14 @@ export default function Footer() {
 
           {/* Contact info */}
           <div>
-            <h4 className="font-sans text-sm font-semibold text-white mb-4 uppercase tracking-wider">
+            <h4 className="text-xs font-medium text-neutral-900 mb-3">
               Contact
             </h4>
-            <ul className="space-y-3 font-sans text-sm text-ras-neutral-400">
+            <ul className="space-y-2 text-sm text-neutral-400">
               <li>
                 <a
                   href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
-                  className="hover:text-ras-green-400 transition-colors"
+                  className="hover:text-neutral-600 transition-colors"
                 >
                   {siteConfig.phone}
                 </a>
@@ -92,25 +91,24 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="hover:text-ras-green-400 transition-colors"
+                  className="hover:text-neutral-600 transition-colors"
                 >
                   {siteConfig.email}
                 </a>
               </li>
               <li>{siteConfig.hours}</li>
-              <li className="leading-relaxed">{siteConfig.address}</li>
+              <li>{siteConfig.address}</li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-ras-neutral-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-sans text-xs text-ras-neutral-500">
+      <div className="border-t border-neutral-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-xs text-neutral-400">
             &copy; {new Date().getFullYear()} RAS International. All rights reserved.
           </p>
-          <p className="font-sans text-xs text-ras-neutral-500">
+          <p className="text-xs text-neutral-400">
             Proud Member of ASAE
           </p>
         </div>

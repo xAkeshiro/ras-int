@@ -31,78 +31,79 @@ export default function Navbar() {
   return (
     <header
       className={clsx(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
         scrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-sm"
+          ? "bg-white/80 backdrop-blur-md border-b border-neutral-200/60"
           : "bg-white"
       )}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-20">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <a href="#" className="flex items-center gap-2 shrink-0">
           <Image
             src="/logos/ras-logo-green.png"
             alt="RAS International logo"
-            width={40}
-            height={40}
-            className="w-8 h-8 sm:w-10 sm:h-10"
+            width={28}
+            height={28}
+            className="w-7 h-7"
           />
-          <span className="font-serif text-lg sm:text-xl font-bold text-ras-neutral-800">
+          <span className="text-sm font-semibold text-neutral-900">
             RAS International
           </span>
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-sans text-sm text-ras-neutral-600 hover:text-ras-green-600 transition-colors"
+              className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <Button href="#contact" className="text-sm px-5 py-2">
+          <Button href="#contact">
             Contact Us
           </Button>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 text-ras-neutral-700"
+          className="md:hidden p-1.5 text-neutral-600 hover:text-neutral-900"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
       {/* Mobile drawer */}
       <div
         className={clsx(
-          "fixed inset-0 top-16 sm:top-20 z-40 bg-white transform transition-transform duration-300 ease-in-out md:hidden",
+          "fixed inset-0 top-14 z-40 bg-white transform transition-transform duration-200 ease-in-out md:hidden",
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="flex flex-col items-center gap-6 pt-12">
+        <div className="flex flex-col px-6 pt-8 gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="font-sans text-lg text-ras-neutral-700 hover:text-ras-green-600 transition-colors"
+              className="text-base text-neutral-600 hover:text-neutral-900 transition-colors py-3 border-b border-neutral-100"
             >
               {link.label}
             </a>
           ))}
-          <Button
-            href="#contact"
-            className="mt-4"
-            onClick={() => setMobileOpen(false)}
-          >
-            Contact Us
-          </Button>
+          <div className="pt-4">
+            <Button
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+            >
+              Contact Us
+            </Button>
+          </div>
         </div>
       </div>
     </header>
